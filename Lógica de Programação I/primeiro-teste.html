@@ -1,0 +1,25 @@
+<meta charset="UTF-8" />
+<input>
+<button>Compare com o meu segredo!</button>
+<script>
+    
+	function teste(){
+		if(input.value == segredo){
+			alert("Correto!");
+		}else{
+			alert("Incorreto!");
+		}
+		input.value = "";
+		input.focus();
+	}
+	
+	
+	var segredo = 5;
+	var input = document.querySelector("input");
+	var button = document.querySelector("button");
+	
+	button.onclick = teste;
+	
+
+	
+</script>
