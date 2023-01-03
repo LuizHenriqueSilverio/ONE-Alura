@@ -8,9 +8,9 @@
 }
 
 .banner__titulo {
-    color: #fdfdfd;
+    color: var(--branco);
 
-    font-family: 'Pacifico', cursive;
+    font-family: var(--pacifico);
     font-size: 5.0625rem;
 
     position: absolute;
@@ -22,4 +22,24 @@
     text-align: center;
     transform: translate(-50%, -50%);
     width: 100%;
+}
+
+@media screen and (min-width: 0) {
+    .banner__titulo {
+        font-size: 3rem;
+    }
+
+    .banner__imagem {
+        height: calc(100vh - 51px);
+    }
+}
+
+@media screen and (min-width: 768px){
+    .banner__titulo {
+        font-size: 5.0625rem;
+    }
+
+    .banner__imagem {
+        height: 70vh;
+    }
 }

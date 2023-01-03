@@ -1,0 +1,10 @@
+.rodape {
+    background: #BFBFBF;
+
+    color: var(--branco);
+
+    text-align: right;
+    text-transform: lowercase;
+
+    padding: 1.5625rem 5rem;
+}
