@@ -1,6 +1,6 @@
 import { carregaTarefa } from "./carregaTarefa.js";
-import BotaoConclui from "./concluiTarefa.js"
-import BotaoDeleta from "./deletaTarefa.js"
+import BotaoConclui from "./concluiTarefa.js";
+import BotaoDeleta from "./deletaTarefa.js";
 
 export const handleNovoItem = (evento) => {
 
@@ -12,11 +12,16 @@ export const handleNovoItem = (evento) => {
 
     const calendario = document.querySelector('[data-form-datetime]');
     const data = moment(calendario.value);
+    const horario = data.format('HH:mm');
     const dataFormatada = data.format('DD/MM/YYYY');
+
+    const concluida = false;
 
     const dados = {
         valor,
-        dataFormatada
+        dataFormatada,
+        horario,
+        concluida
     }
 
     const tarefasAtualizadas = [...tarefas, dados];
@@ -28,16 +33,21 @@ export const handleNovoItem = (evento) => {
     carregaTarefa();
 }
 
-export const Tarefa = ({valor, dataFormatada}) => {
+export const Tarefa = ({valor, horario, concluida}, id) => {
 
     const tarefa = document.createElement('li');
+    const conteudo = `<p class="content">${horario} * ${valor}</p>`;
+
+    if(concluida){
+        tarefa.classList.add('done');
+    }
+
     tarefa.classList.add('task');
-    const conteudo = `<p class="content">${dataFormatada} * ${valor}</p>`;
 
     tarefa.innerHTML = conteudo;
 
-    tarefa.appendChild(BotaoConclui());
-    tarefa.appendChild(BotaoDeleta());
+    tarefa.appendChild(BotaoConclui(carregaTarefa, id));
+    tarefa.appendChild(BotaoDeleta(carregaTarefa, id));
 
     return tarefa;
 }

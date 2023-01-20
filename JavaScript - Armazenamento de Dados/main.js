@@ -1,5 +1,5 @@
-import { handleNovoItem } from './components/js/criaTarefa.js'
-import { carregaTarefa } from './components/js/carregaTarefa.js'
+import { handleNovoItem } from './components/js/criaTarefa.js';
+import { carregaTarefa } from './components/js/carregaTarefa.js';
 
 const novaTarefa = document.querySelector('[data-form-button]');
 
